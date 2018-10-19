@@ -2,37 +2,43 @@
 <html>
   <head>
     <title>View User Posts</title>
+    <link href="myStyle3.css"
+          rel="stylesheet"
+          type="text/css"/>
   </head>
 
-  <body style="background-color:rgb(179, 204, 230); font-family: arial">
+  <body>
     <h1> User Posts </h1>
-    <form action="ViewUserPosts.php" method="post">
-      <p>Select a user to view posts: </p>
-      <select name="select">
-      <?php
-        $mysqli = new mysqli("mysql.eecs.ku.edu", "x864y008", "aeriph9U", "x864y008");
+      <div class="content">
+        <form action="ViewUserPosts.php" method="post">
+          <p>Select a user to view posts: </p>
+          <select name="select">
+          <?php
+            $mysqli = new mysqli("mysql.eecs.ku.edu", "x864y008", "aeriph9U", "x864y008");
 
-        if ($mysqli->connect_errno)
-        {
-          printf("Connect failed: %s\n", $mysqli->connect_error);
-          exit();
-        }
-
-        $query = "SELECT user_id FROM Users";
-        if ($result = $mysqli->query($query))
-        {
-            while ($row = $result->fetch_assoc())
+            if ($mysqli->connect_errno)
             {
-              $user = $row["user_id"];
-              echo "<option value='$user'>".$user."</option>";
-              echo "<br>";
+              printf("Connect failed: %s\n", $mysqli->connect_error);
+              exit();
             }
-          $result->free();
-        }
-        $mysqli->close();
-      ?>
-      </select>
-      <button type="submit" value="submit">Submit</button>
-    </form>
+
+            $query = "SELECT user_id FROM Users";
+            if ($result = $mysqli->query($query))
+            {
+                while ($row = $result->fetch_assoc())
+                {
+                  $user = $row["user_id"];
+                  echo "<option value='$user'>".$user."</option>";
+                  echo "<br>";
+                }
+              $result->free();
+            }
+            $mysqli->close();
+          ?>
+          </select>
+          <br><br>
+          <button type="submit" value="submit">Submit</button>
+        </form>
+    </div>
   </body>
 </html>

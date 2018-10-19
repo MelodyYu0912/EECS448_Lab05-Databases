@@ -1,16 +1,22 @@
 <html>
   <head>
     <title> Create a post </title>
+    <link href="myStyle3.css"
+          rel="stylesheet"
+          type="text/css"/>
   </head>
 
-  <body style="background-color:rgb(179, 204, 230); font-family: arial">
-    <form action="CreatePosts.php" method="post">
-      <p>Username:</p>
-      <input type="text" id="userName" name="userName"><br>
-      <p>Create your post:</p><br>
-      <textarea rows="4" cols="50" name="post"></textarea><br>
-      <button type="submit" value="submit">Submit</button>
-      <br>
-    </form>
+  <body>
+    <div class="content">
+      <form action="CreatePosts.php" method="post">
+        <p>Username:</p>
+        <input type="text" id="userName" name="userName"><br>
+        <p>Create your post:</p>
+        <textarea rows="4" cols="50" name="post"></textarea><br>
+        <br>
+        <button type="submit" value="submit">Submit</button>
+        <br>
+      </form>
+    </div>
   </body>
 </html>

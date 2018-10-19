@@ -1,48 +1,54 @@
 <html>
   <head>
     <title>Delete Posts</title>
+    <link href="myStyle3.css"
+          rel="stylesheet"
+          type="text/css"/>
   </head>
 
-  <body style="background-color:rgb(179, 204, 230); font-family: arial">
+  <body>
     <h1> User Posts </h1>
-    <form action="DeletePost.php" method="post">
-      <?php
-        $mysqli = new mysqli("mysql.eecs.ku.edu", "x864y008", "aeriph9U", "x864y008");
+      <div class="content">
+        <form action="DeletePost.php" method="post">
+          <?php
+            $mysqli = new mysqli("mysql.eecs.ku.edu", "x864y008", "aeriph9U", "x864y008");
 
-        if ($mysqli->connect_errno)
-        {
-          printf("Connect failed: %s\n", $mysqli->connect_error);
-          exit();
-        }
+            if ($mysqli->connect_errno)
+            {
+              printf("Connect failed: %s\n", $mysqli->connect_error);
+              exit();
+            }
 
-        $query = "SELECT * FROM Posts ORDER BY author_id";
-        if ($result = $mysqli->query($query))
-        {
-          echo "<table style='margin:10pt; text-align:center'>";
-          echo "<tr>";
-          echo "<th>Author ID</th>";
-          echo "<th>Content</th>";
-          echo "<th></th>";
-          echo "</tr>";
+            $query = "SELECT * FROM Posts ORDER BY author_id";
+            if ($result = $mysqli->query($query))
+            {
+              echo "<table>";
+              echo "<tr>";
+              echo "<th style='font-family:verdana'>Author ID</th>";
+              echo "<th style='font-family:verdana'>Content</th>";
+              echo "<th style='font-family:verdana'></th>";
+              echo "</tr>";
 
-          while ($row = $result->fetch_assoc())
-          {
-            $post_id = $row["post_id"];
-            echo "<tr>";
-            echo "<td>".$row["author_id"]."</td>";
-            echo "<td>".$row["content"]."</td>";
-            echo "<td>Delete? <input type='checkbox' name='posts[]' value='$post_id'></td>";
-            echo "</tr>";
-          }
-          echo "</table>";
-          $result->free();
-        }
-        else
-        {
-          echo "No posts on the database!";
-        }
-        $mysqli->close();
-      ?>
-      <button type="submit" value="submit">Submit</button>
+              while ($row = $result->fetch_assoc())
+              {
+                $post_id = $row["post_id"];
+                echo "<tr>";
+                echo "<td width='400'>".$row["author_id"]."</td>";
+                echo "<td width='800'>".$row["content"]."</td>";
+                echo "<td width='200'>Delete? <input type='checkbox' name='posts[]' value='$post_id'></td>";
+                echo "</tr>";
+              }
+              echo "</table>";
+              $result->free();
+            }
+            else
+            {
+              echo "No posts on the database!";
+            }
+            $mysqli->close();
+          ?>
+          <button type="submit" value="submit">Submit</button>
+        </form>
+    </div>
   </body>
 </html>

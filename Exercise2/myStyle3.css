@@ -1,0 +1,38 @@
+div.content{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+h1{
+  font-family: verdana;
+  color: rgb(255, 255, 255);
+  text-shadow: black 0.1em 0.1em 0.2em;
+  text-align: center;
+}
+
+body{
+  background-color: rgb(51, 102, 153);
+  font-family: verdana;
+}
+
+p{
+  color: rgb(255, 255, 255);
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-family: verdana;
+}
+
+table{
+  margin:20pt;
+  text-align:center;
+  color: rgb(255, 255, 255);
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-family: serif;
+  /* table-layout: fixed; */
+  width: 100%;
+}
