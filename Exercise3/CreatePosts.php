@@ -21,7 +21,7 @@
 
         if (($post == '') || ($username == ''))
         {
-          echo "Error: Both content and username needs to be filled out.";
+          echo "<p>Error: Both content and username needs to be filled out.</p>";
           echo "<br>";
         }
         else
